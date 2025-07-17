@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nutrition Planner Registration</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #72c6ef, #3a94d8);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: #ffffffcc;
+      backdrop-filter: saturate(180%) blur(20px);
+      margin: 40px 20px;
+      padding: 40px 35px;
+      border-radius: 16px;
+      box-shadow: 0 15px 35px rgba(30, 130, 210, 0.3);
+      page-break-after: always;
+    }
+
+    h2 {
+      text-align: center;
+      color: #045f8c;
+      margin-bottom: 30px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin: 18px 0 8px;
+      font-weight: 600;
+      color: #0a3d62;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 2px solid #b0d4f1;
+      font-size: 1rem;
+      box-sizing: border-box;
+      background: #f8fcff;
+      color: #1b2838;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #1e90ff;
+      box-shadow: 0 0 8px #1e90ff88;
+      outline: none;
+      background: #ffffff;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .radio-group,
+    .checkbox-group {
+      margin-top: 6px;
+    }
+
+    .radio-group label,
+    .checkbox-group label {
+      font-weight: 500;
+      margin-right: 20px;
+      cursor: pointer;
+      color: #2a4d69;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      accent-color: #1e90ff;
+      margin-right: 6px;
+      cursor: pointer;
+    }
+
+    input[type="submit"] {
+      margin-top: 35px;
+      width: 100%;
+      background: linear-gradient(90deg, #1e90ff, #0652dd);
+      color: white;
+      font-size: 1.25rem;
+      font-weight: 700;
+      border: none;
+      padding: 16px 0;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(30, 144, 255, 0.4);
+    }
+
+    input[type="submit"]:hover {
+      background: linear-gradient(90deg, #0652dd, #1e90ff);
+      box-shadow: 0 12px 28px rgba(30, 144, 255, 0.6);
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        margin: 20px 15px;
+        padding: 30px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Page 1 -->
+<div class="container">
+  <h2>Page 1: Personal & Physical Info</h2>
+  <form>
+
+    <label for="fullname">Full Name *</label>
+    <input type="text" id="fullname" name="fullname" required />
+
+    <label for="email">Email *</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="phone">Phone Number *</label>
+    <input type="text" id="phone" name="phone" pattern="[0-9]{10}" required placeholder="10 digits" />
+
+    <label for="age">Age *</label>
+    <input type="number" id="age" name="age" min="1" max="120" required />
+
+    <label>Gender *</label>
+    <div class="radio-group">
+      <label><input type="radio" name="gender" value="Male" required /> Male</label>
+      <label><input type="radio" name="gender" value="Female" /> Female</label>
+      <label><input type="radio" name="gender" value="Other" /> Other</label>
+    </div>
+
+    <label for="height">Height (cm) *</label>
+    <input type="number" id="height" name="height" min="30" max="300" required />
+
+    <label for="weight">Weight (kg) *</label>
+    <input type="number" id="weight" name="weight" min="1" max="500" required />
+</div>
+
+<!-- Page 2 -->
+<div class="container">
+  <h2>Page 2: Lifestyle & Preferences</h2>
+
+    <label for="activity_level">Physical Activity Level *</label>
+    <select id="activity_level" name="activity_level" required>
+      <option value="" disabled selected>Select...</option>
+      <option value="Sedentary">Sedentary</option>
+      <option value="Lightly Active">Lightly Active</option>
+      <option value="Moderately Active">Moderately Active</option>
+      <option value="Very Active">Very Active</option>
+    </select>
+
+    <label>Dietary Preferences *</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="diet[]" value="Vegetarian" /> Vegetarian</label>
+      <label><input type="checkbox" name="diet[]" value="Vegan" /> Vegan</label>
+      <label><input type="checkbox" name="diet[]" value="Gluten-Free" /> Gluten-Free</label>
+      <label><input type="checkbox" name="diet[]" value="Keto" /> Keto</label>
+      <label><input type="checkbox" name="diet[]" value="No Preference" /> No Preference</label>
+    </div>
+
+    <label for="goals">Primary Goal *</label>
+    <select id="goals" name="goals" required>
+      <option value="" disabled selected>Select...</option>
+      <option value="Weight Loss">Weight Loss</option>
+      <option value="Muscle Gain">Muscle Gain</option>
+      <option value="Maintain Weight">Maintain Weight</option>
+      <option value="General Health">General Health</option>
+    </select>
+
+    <label for="sleep_hours">Sleep Hours (per night) *</label>
+    <input type="number" id="sleep_hours" name="sleep_hours" min="1" max="24" required />
+
+    <label for="stress_level">Stress Level *</label>
+    <select id="stress_level" name="stress_level" required>
+      <option value="" disabled selected>Select...</option>
+      <option value="Low">Low</option>
+      <option value="Moderate">Moderate</option>
+      <option value="High">High</option>
+    </select>
+
+    <label for="exercise_freq">Exercise Frequency (days per week)</label>
+    <input type="number" id="exercise_freq" name="exercise_freq" min="0" max="14" />
+
+    <label for="smoking">Smoking</label>
+    <select id="smoking" name="smoking">
+      <option value="" disabled selected>Select...</option>
+      <option value="No">No</option>
+      <option value="Occasionally">Occasionally</option>
+      <option value="Regularly">Regularly</option>
+    </select>
+
+    <label for="alcohol">Alcohol Consumption</label>
+    <select id="alcohol" name="alcohol">
+      <option value="" disabled selected>Select...</option>
+      <option value="None">None</option>
+      <option value="Socially">Socially</option>
+      <option value="Regularly">Regularly</option>
+    </select>
+</div>
+
+<!-- Page 3 -->
+<div class="container">
+  <h2>Page 3: Additional Info & Submit</h2>
+
+    <label for="water_intake">Water Intake (liters)</label>
+    <input type="number" id="water_intake" name="water_intake" min="0" max="10" step="0.1" />
+
+    <label for="meal_frequency">Meal Frequency (meals per day)</label>
+    <input type="number" id="meal_frequency" name="meal_frequency" min="1" max="10" placeholder="e.g., 3 to 6" />
+
+    <label for="allergies">Allergies (if any)</label>
+    <textarea id="allergies" name="allergies" placeholder="List known allergies..."></textarea>
+
+    <label for="preferred_cuisine">Preferred Cuisine Style</label>
+    <select id="preferred_cuisine" name="preferred_cuisine">
+      <option value="" disabled selected>Select...</option>
+      <option value="Indian">Indian</option>
+      <option value="Mediterranean">Mediterranean</option>
+      <option value="Asian">Asian</option>
+      <option value="Continental">Continental</option>
+      <option value="No Preference">No Preference</option>
+    </select>
+
+    <label for="medical_conditions">Medical Conditions (if any)</label>
+    <textarea id="medical_conditions" name="medical_conditions" placeholder="Mention any medical history..."></textarea>
+
+    <label for="additional_notes">Additional Notes</label>
+    <textarea id="additional_notes" name="additional_notes" placeholder="Optional notes..."></textarea>
+
+    <input type="submit" value="Register" />
+  </form>
+</div>
+
+</body>
+</html>
